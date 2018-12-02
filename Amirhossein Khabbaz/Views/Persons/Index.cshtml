@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Amirhossein_Khabbaz.Models.Person>
+
+@{
+    ViewBag.Title = "Persons";
+}
+
+<h2>Persons</h2>
+@Html.ActionLink("New Person", "New", "Persons", null, new { @class = "btn btn-primary" })
+<table>
+    <thead>
+        <tr>
+            <th>Person</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(person.Name, "Edit", "Persons", new { id = person.Id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
