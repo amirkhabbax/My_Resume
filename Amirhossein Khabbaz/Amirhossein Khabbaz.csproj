@@ -260,6 +260,14 @@
     <Compile Include="Migrations\201811261319404_AddSkillsToPersonModel.Designer.cs">
       <DependentUpon>201811261319404_AddSkillsToPersonModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812051113146_UpdateSkillModel.cs" />
+    <Compile Include="Migrations\201812051113146_UpdateSkillModel.Designer.cs">
+      <DependentUpon>201812051113146_UpdateSkillModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812051117087_UpdatePersonModel.cs" />
+    <Compile Include="Migrations\201812051117087_UpdatePersonModel.Designer.cs">
+      <DependentUpon>201812051117087_UpdatePersonModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -415,6 +423,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811261319404_AddSkillsToPersonModel.resx">
       <DependentUpon>201811261319404_AddSkillsToPersonModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051113146_UpdateSkillModel.resx">
+      <DependentUpon>201812051113146_UpdateSkillModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051117087_UpdatePersonModel.resx">
+      <DependentUpon>201812051117087_UpdatePersonModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

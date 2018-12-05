@@ -7,7 +7,7 @@ namespace Amirhossein_Khabbaz.Models
         public int Id { get; set; }
 
         [Required]
-        [Range(1,255)]
+        [Range(1, 255)]
         public string Name { get; set; }
 
         [Required]
@@ -15,5 +15,9 @@ namespace Amirhossein_Khabbaz.Models
 
         [Required]
         public byte CurrentValue { get; set; }
+
+        [Required]
+        public int PersonId { get; set; }
+
     }
 }

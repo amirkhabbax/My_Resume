@@ -30,9 +30,5 @@ namespace Amirhossein_Khabbaz.Models
         [Range(1, 100)]
         public String Email { get; set; }
 
-        public List<Skill> Skills { get; set; }
-
-        [Required]
-        public List<int> SkillsIds { get; set; }
     }
 }
