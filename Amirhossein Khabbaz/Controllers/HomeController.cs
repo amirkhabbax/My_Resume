@@ -19,10 +19,5 @@ namespace Amirhossein_Khabbaz.Controllers
         {
             return View();
         }
-
-        public ActionResult Setting()
-        {
-            return View();
-        }
-    }
+  }
 }
