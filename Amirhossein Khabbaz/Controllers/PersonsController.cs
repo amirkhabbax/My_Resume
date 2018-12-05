@@ -17,12 +17,17 @@ namespace Amirhossein_Khabbaz.Controllers
             _context = new ApplicationDbContext();
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Persons
         public ActionResult Index()
         {
             var person = _context.Persons.ToList();
-           // if (person.Count ==0)
-              //  return HttpNotFound();
+            // if (person.Count ==0)
+            //  return HttpNotFound();
 
             return View(person);
         }
@@ -32,12 +37,14 @@ namespace Amirhossein_Khabbaz.Controllers
             var person = _context.Persons.SingleOrDefault(p => p.Id == id);
             if (person == null)
                 return HttpNotFound();
-                
-            return View("PersonForm",person);
+
+            ViewBag.Title = "Edit Person";
+            return View("PersonForm", person);
         }
 
         public ActionResult New()
         {
+            ViewBag.Title = "New Person";
             return View("PersonForm");
         }
 
@@ -45,6 +52,10 @@ namespace Amirhossein_Khabbaz.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Person person)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PersonForm");
+            }
             if (person.Id == 0)
                 _context.Persons.Add(person);
             else
@@ -56,6 +67,11 @@ namespace Amirhossein_Khabbaz.Controllers
                 personInDb.Email = person.Email;
                 personInDb.CountryPhonePrefix = person.CountryPhonePrefix;
                 personInDb.PhoneNumber = person.PhoneNumber;
+                personInDb.Github = person.Github;
+                personInDb.Gitlab = person.Gitlab;
+                personInDb.twitter = person.twitter;
+                personInDb.facebook = person.facebook;
+                personInDb.LinkediN = person.LinkediN;
             }
 
 

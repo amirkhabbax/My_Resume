@@ -4,12 +4,17 @@
     ViewBag.Title = "Persons";
 }
 
-<h2>Persons</h2>
+<h2 class ="haveMarginTop">Persons</h2>
 @Html.ActionLink("New Person", "New", "Persons", null, new { @class = "btn btn-primary" })
 <table>
     <thead>
         <tr>
             <th>Person</th>
+            <th>Work Experiences</th>
+            <th>Skills</th>
+            <th>Education</th>
+            <th>Interests</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>

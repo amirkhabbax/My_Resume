@@ -1,33 +1,64 @@
 ﻿@model Amirhossein_Khabbaz.Models.Person
 
 @{
-    ViewBag.Title = "New Person";
+
 }
 
-<h2>New Person</h2>
+<h2 class="haveMarginTop">@ViewBag.Title</h2>
 @using (Html.BeginForm("Save", "Persons"))
 {
+    @Html.ValidationSummary(true, "Please fix the following problems.")
     <div class="form-group">
         @Html.LabelFor(p => p.Name)
         @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(p => p.BirthDateTime)
         @Html.TextBoxFor(p => p.BirthDateTime, "{0:d MMM YYYY}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.BirthDateTime)
     </div>
     <div class="form-group">
         @Html.LabelFor(p => p.CountryPhonePrefix)
         @Html.TextBoxFor(p => p.CountryPhonePrefix, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.CountryPhonePrefix)
     </div>
     <div class="form-group">
         @Html.LabelFor(p => p.PhoneNumber)
         @Html.TextBoxFor(p => p.PhoneNumber, new { @class = "form-control" })
-
+        @Html.ValidationMessageFor(p => p.PhoneNumber)
     </div>
     <div class="form-group">
         @Html.LabelFor(p => p.Email)
         @Html.TextBoxFor(p => p.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Email)
     </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.LinkediN)
+        @Html.TextBoxFor(p => p.LinkediN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.LinkediN)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Github)
+        @Html.TextBoxFor(p => p.Github, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Github)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Gitlab)
+        @Html.TextBoxFor(p => p.Gitlab, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Gitlab)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.twitter)
+        @Html.TextBoxFor(p => p.twitter, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.twitter)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.facebook)
+        @Html.TextBoxFor(p => p.facebook, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.facebook)
+    </div>
+    @Html.HiddenFor(p => p.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn-primary btn">Save</button>
 

@@ -133,3 +133,5 @@ C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Am
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.AddSkillsToPersonModel.resources
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.UpdateSkillModel.resources
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.UpdatePersonModel.resources
+C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.UpdatePersonModel1.resources
+C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.UpdatePersonModel2.resources

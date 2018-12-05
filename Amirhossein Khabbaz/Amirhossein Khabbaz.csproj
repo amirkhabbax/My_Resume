@@ -268,6 +268,14 @@
     <Compile Include="Migrations\201812051117087_UpdatePersonModel.Designer.cs">
       <DependentUpon>201812051117087_UpdatePersonModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812051254156_UpdatePersonModel1.cs" />
+    <Compile Include="Migrations\201812051254156_UpdatePersonModel1.Designer.cs">
+      <DependentUpon>201812051254156_UpdatePersonModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812051442485_UpdatePersonModel2.cs" />
+    <Compile Include="Migrations\201812051442485_UpdatePersonModel2.Designer.cs">
+      <DependentUpon>201812051442485_UpdatePersonModel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -383,7 +391,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Persons\Index.cshtml" />
     <Content Include="Views\Persons\PersonForm.cshtml" />
-    <Content Include="Views\Home\Setting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -429,6 +436,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812051117087_UpdatePersonModel.resx">
       <DependentUpon>201812051117087_UpdatePersonModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051254156_UpdatePersonModel1.resx">
+      <DependentUpon>201812051254156_UpdatePersonModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051442485_UpdatePersonModel2.resx">
+      <DependentUpon>201812051442485_UpdatePersonModel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

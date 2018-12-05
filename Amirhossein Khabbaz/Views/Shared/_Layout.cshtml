@@ -20,8 +20,8 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     @* <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
-                    <li>@Html.ActionLink("Contact Me", "Contact", "Home", new { area = "" }, new {@class ="nav-link"})</li>
-                    <li>@Html.ActionLink("Settings", "Index", "Persons", new { area = "" }, new {@class ="nav-link"})</li>
+                    <li>@Html.ActionLink("Contact Me", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Settings", "Index", "Persons", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>
@@ -36,6 +36,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 </body>
 </html>
