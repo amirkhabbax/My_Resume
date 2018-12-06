@@ -4,9 +4,9 @@
     ViewBag.Title = "Persons";
 }
 
-<h2 class ="haveMarginTop">Persons</h2>
+<h2 class="haveMarginTop">Persons</h2>
 @Html.ActionLink("New Person", "New", "Persons", null, new { @class = "btn btn-primary" })
-<table>
+<table Class="table table-responsive-lg">
     <thead>
         <tr>
             <th>Person</th>
@@ -14,7 +14,7 @@
             <th>Skills</th>
             <th>Education</th>
             <th>Interests</th>
-            <th>Delete</th>
+            <th>Languages</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +24,22 @@
                 <td>
                     @Html.ActionLink(person.Name, "Edit", "Persons", new { id = person.Id }, null)
                 </td>
+                <td>
+                    @Html.ActionLink("Edit", "Index", "WorkExperiences", new { personId = person.Id }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Index", "Skills", new { personId = person.Id }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Index", "Education", new { personId = person.Id }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Index", "Interests", new { personId = person.Id }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Index", "Languages", new { personId = person.Id }, null)
+                </td>
+
             </tr>
         }
     </tbody>

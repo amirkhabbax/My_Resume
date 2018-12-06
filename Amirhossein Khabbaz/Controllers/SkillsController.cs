@@ -3,24 +3,81 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Amirhossein_Khabbaz.Models;
+using Amirhossein_Khabbaz.ViewModels;
 
 namespace Amirhossein_Khabbaz.Controllers
 {
     public class SkillsController : Controller
     {
-        // GET: Skills
-        public ActionResult Index()
+        private ApplicationDbContext _context;
+
+        public SkillsController()
         {
-            return View();
-        }
-        public ActionResult Edit()
-        {
-            return View();
+            _context = new ApplicationDbContext();
         }
 
-        public ActionResult New()
+        protected override void Dispose(bool disposing)
         {
-            return View();
+            _context.Dispose();
+        }
+        // GET: Skills
+        public ActionResult Index(int personId)
+        {
+            var skills = _context.Skills.Where(s => s.PersonId == personId).ToList();
+            var viewModel = new SkillstViewModel
+            {
+                Skills = skills,
+                PersonId = personId
+            };
+            return View(viewModel);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var skill = _context.Skills.SingleOrDefault(s => s.Id == id);
+            if (skill == null)
+                return HttpNotFound();
+
+            var viewModel = new SkillFormViewModel(skill);
+
+            ViewBag.Title = "Edit Skill";
+            return View("SkillForm", viewModel);
+        }
+
+        public ActionResult New(int personId)
+        {
+            ViewBag.Title = "New Skill";
+            var viewModel = new SkillFormViewModel(personId);
+            return View("SkillForm", viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Skill skill)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new SkillFormViewModel(skill);
+                return View("SkillForm",viewModel);
+            }
+
+            if (skill.Id == 0)
+            {
+                _context.Skills.Add(skill);
+            }
+            else
+            {
+                var skillInDb = _context.Skills.Single(s => s.Id == skill.Id);
+
+                skillInDb.Name = skill.Name;
+                skillInDb.CurrentValue = skill.CurrentValue;
+            }
+
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Skills", new{personId = skill.PersonId});
         }
     }
 }

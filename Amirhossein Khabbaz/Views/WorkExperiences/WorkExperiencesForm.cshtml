@@ -1,0 +1,28 @@
+﻿@model Amirhossein_Khabbaz.ViewModels.WorkExperiencesFormViewModel
+
+<h2 class="haveMarginTop">@ViewBag.title</h2>
+@using (Html.BeginForm("Save", "WorkExperiences"))
+{
+    @Html.ValidationSummary(true, "Please fix the following problems.")
+    <div class="form-group">
+        @Html.LabelFor(p => p.Company)
+        @Html.TextBoxFor(p => p.Company, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Company)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Years)
+        @Html.TextBoxFor(p => p.Years, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Years)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.ReasonOfDeparture)
+        @Html.TextBoxFor(p => p.ReasonOfDeparture, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.ReasonOfDeparture)
+    </div>
+    @Html.HiddenFor(p => p.PersonId)
+    @Html.HiddenFor(p => p.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn-primary btn">Save</button>
+
+}
+
