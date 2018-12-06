@@ -1,0 +1,25 @@
+﻿@model  Amirhossein_Khabbaz.ViewModels.InterestViewModel
+
+@{
+    ViewBag.Title = "Interests";
+}
+
+<h2 class="haveMarginTop">Interests</h2>
+@Html.ActionLink("New Interest", "New", "Interests", new{personId = Model.PersonId}, new { @class = "btn btn-primary" })
+<table Class="table table-responsive-lg">
+    <thead>
+    <tr>
+        <th>Interest</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var interest in Model.Interests)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(interest.Name, "Edit", "Interests", new { id = interest.Id }, null)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿@model Amirhossein_Khabbaz.ViewModels.WorkExperiencesViewModel
+
+@{
+    ViewBag.Title = "Work Experience";
+}
+
+<h2 class="haveMarginTop">Work Experience</h2>
+@Html.ActionLink("New Work Experience", "New", "WorkExperiences", new { personId = Model.PersonId }, new { @class = "btn btn-primary" })
+<table Class="table table-responsive-lg">
+    <thead>
+        <tr>
+            <th>Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var workExperience in Model.WorkExperiences)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(workExperience.Company, "Edit", "WorkExperiences", new { id = workExperience.Id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

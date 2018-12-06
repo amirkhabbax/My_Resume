@@ -234,6 +234,7 @@
     <Compile Include="Controllers\Api\SkillsController.cs" />
     <Compile Include="Controllers\EducationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InterestsController.cs" />
     <Compile Include="Controllers\LanguagesController.cs" />
     <Compile Include="Controllers\PersonsController.cs" />
     <Compile Include="Controllers\SkillsController.cs" />
@@ -276,16 +277,34 @@
     <Compile Include="Migrations\201812051442485_UpdatePersonModel2.Designer.cs">
       <DependentUpon>201812051442485_UpdatePersonModel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812052217421_UpdateDomainModel.cs" />
+    <Compile Include="Migrations\201812052217421_UpdateDomainModel.Designer.cs">
+      <DependentUpon>201812052217421_UpdateDomainModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Education.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Interests.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\WorkExperience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\EducationFormViewModel.cs" />
+    <Compile Include="ViewModels\EducationsViewModel.cs" />
+    <Compile Include="ViewModels\InterestFormViewModel.cs" />
+    <Compile Include="ViewModels\InterestViewModel.cs" />
+    <Compile Include="ViewModels\LanguageFormViewModel.cs" />
+    <Compile Include="ViewModels\LanguagesViewModel.cs" />
+    <Compile Include="ViewModels\SkillFormViewModel.cs" />
+    <Compile Include="ViewModels\SkillstViewModel.cs" />
+    <Compile Include="ViewModels\WorkExperiencesFormViewModel.cs" />
+    <Compile Include="ViewModels\WorkExperiencesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -391,14 +410,19 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Persons\Index.cshtml" />
     <Content Include="Views\Persons\PersonForm.cshtml" />
+    <Content Include="Views\Interests\Index.cshtml" />
+    <Content Include="Views\Interests\InterestForm.cshtml" />
+    <Content Include="Views\Skills\Index.cshtml" />
+    <Content Include="Views\Skills\SkillForm.cshtml" />
+    <Content Include="Views\Education\Index.cshtml" />
+    <Content Include="Views\Education\EducationForm.cshtml" />
+    <Content Include="Views\WorkExperiences\WorkExperiencesForm.cshtml" />
+    <Content Include="Views\WorkExperiences\Index.cshtml" />
+    <Content Include="Views\Languages\Index.cshtml" />
+    <Content Include="Views\Languages\LanguageForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\Education\" />
-    <Folder Include="Views\Languages\" />
-    <Folder Include="Views\Skills\" />
-    <Folder Include="Views\WorkExperiences\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
@@ -442,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812051442485_UpdatePersonModel2.resx">
       <DependentUpon>201812051442485_UpdatePersonModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812052217421_UpdateDomainModel.resx">
+      <DependentUpon>201812052217421_UpdateDomainModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

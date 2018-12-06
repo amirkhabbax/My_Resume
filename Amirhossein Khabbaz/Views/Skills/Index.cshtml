@@ -1,0 +1,25 @@
+﻿@model Amirhossein_Khabbaz.ViewModels.SkillstViewModel
+@{
+    ViewBag.Title = "Skills";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="haveMarginTop">Skills</h2>
+@Html.ActionLink("New Skill", "New", "Skills", new { personId = Model.PersonId }, new { @class = "btn btn-primary" })
+<table Class="table table-responsive-lg">
+    <thead>
+        <tr>
+            <th>Skill</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var skill in Model.Skills)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(skill.Name, "Edit", "Skills", new { id = skill.Id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

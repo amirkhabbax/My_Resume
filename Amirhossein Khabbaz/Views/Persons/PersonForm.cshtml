@@ -34,9 +34,9 @@
         @Html.ValidationMessageFor(p => p.Email)
     </div>
     <div class="form-group">
-        @Html.LabelFor(p => p.LinkediN)
-        @Html.TextBoxFor(p => p.LinkediN, new { @class = "form-control" })
-        @Html.ValidationMessageFor(p => p.LinkediN)
+        @Html.LabelFor(p => p.Linkedin)
+        @Html.TextBoxFor(p => p.Linkedin, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Linkedin)
     </div>
     <div class="form-group">
         @Html.LabelFor(p => p.Github)
@@ -49,14 +49,14 @@
         @Html.ValidationMessageFor(p => p.Gitlab)
     </div>
     <div class="form-group">
-        @Html.LabelFor(p => p.twitter)
-        @Html.TextBoxFor(p => p.twitter, new { @class = "form-control" })
-        @Html.ValidationMessageFor(p => p.twitter)
+        @Html.LabelFor(p => p.Twitter)
+        @Html.TextBoxFor(p => p.Twitter, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Twitter)
     </div>
     <div class="form-group">
-        @Html.LabelFor(p => p.facebook)
-        @Html.TextBoxFor(p => p.facebook, new { @class = "form-control" })
-        @Html.ValidationMessageFor(p => p.facebook)
+        @Html.LabelFor(p => p.Facebook)
+        @Html.TextBoxFor(p => p.Facebook, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Facebook)
     </div>
     @Html.HiddenFor(p => p.Id)
     @Html.AntiForgeryToken()

@@ -1,0 +1,17 @@
+﻿@model Amirhossein_Khabbaz.ViewModels.InterestFormViewModel
+
+<h2 class="haveMarginTop">@ViewBag.title</h2>
+@using (Html.BeginForm("Save", "Interests"))
+{
+    @Html.ValidationSummary(true, "Please fix the following problems.")
+    <div class="form-group">
+        @Html.LabelFor(p => p.Name)
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Name)
+    </div>
+    @Html.HiddenFor(p => p.Id)
+    @Html.HiddenFor(p => p.PersonId)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn-primary btn">Save</button>
+
+}
