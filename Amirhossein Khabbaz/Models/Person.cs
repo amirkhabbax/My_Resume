@@ -32,7 +32,11 @@ namespace Amirhossein_Khabbaz.Models
 
         [StringLength(255)]
         [Display(Name = "linkedin")]
+<<<<<<< HEAD
         public string LinkedIn { get; set; }
+=======
+        public string Linkedin { get; set; }
+>>>>>>> 33c1f823eabe2ea1251ace2a63e74304d0bd8b53
 
         [StringLength(255)]
         [Display(Name = "github")]
@@ -43,11 +47,17 @@ namespace Amirhossein_Khabbaz.Models
         public string Gitlab { get; set; }
 
         [StringLength(255)]
+<<<<<<< HEAD
         [Display(Name = "twitter")]
         public string Twitter { get; set; }
 
         [StringLength(255)]
         [Display(Name = "facebook")]
+=======
+        public string Twitter { get; set; }
+
+        [StringLength(255)]
+>>>>>>> 33c1f823eabe2ea1251ace2a63e74304d0bd8b53
         public string Facebook { get; set; }
 
     }

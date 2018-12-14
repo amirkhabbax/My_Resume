@@ -1,0 +1,26 @@
+﻿@model Amirhossein_Khabbaz.ViewModels.LanguagesViewModel
+
+@{
+    ViewBag.Title = "Languages";
+}
+
+<h2 class="haveMarginTop">Languages</h2>
+@Html.ActionLink("New Language", "New", "Languages", new { personId = Model.PersonId }, new { @class = "btn btn-primary" })
+<table Class="table table-responsive-lg">
+    <thead>
+    <tr>
+        <th>Language</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var language in Model.Languages)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(language.Name, "Edit", "Languages", new { id = language.Id }, null)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+

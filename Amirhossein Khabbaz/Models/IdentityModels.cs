@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Amirhossein_Khabbaz.Controllers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -22,7 +23,17 @@ namespace Amirhossein_Khabbaz.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Skill> Skills { get; set; }
+
         public DbSet<Person> Persons { get; set; }
+
+        public DbSet<Interests> Interests { get; set; }
+
+        public DbSet<WorkExperience> WorkExperiences { get; set; }
+
+        public DbSet<Language> Languages { get; set; }
+
+        public DbSet<Education> Educations { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -1,0 +1,26 @@
+﻿@model Amirhossein_Khabbaz.ViewModels.EducationsViewModel
+
+@{
+    ViewBag.Title = "Education";
+}
+
+<h2 class="haveMarginTop">Education</h2>
+@Html.ActionLink("New Degree", "New", "Education", new { personId = Model.PersonId }, new { @class = "btn btn-primary" })
+<table Class="table table-responsive-lg">
+    <thead>
+    <tr>
+        <th>Degree</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var education in Model.Educations)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(education.Degree, "Edit", "Education", new { id = education.Id }, null)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
