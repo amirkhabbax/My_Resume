@@ -69,9 +69,9 @@ namespace Amirhossein_Khabbaz.Controllers
                 personInDb.PhoneNumber = person.PhoneNumber;
                 personInDb.Github = person.Github;
                 personInDb.Gitlab = person.Gitlab;
-                personInDb.twitter = person.twitter;
-                personInDb.facebook = person.facebook;
-                personInDb.LinkediN = person.LinkediN;
+                personInDb.Twitter = person.Twitter;
+                personInDb.Facebook = person.Facebook;
+                personInDb.LinkedIn = person.LinkedIn;
             }
 
 

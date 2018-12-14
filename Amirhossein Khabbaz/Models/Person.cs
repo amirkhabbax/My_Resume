@@ -12,7 +12,7 @@ namespace Amirhossein_Khabbaz.Models
 
         [Required]
         [StringLength(255)]
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         [Display(Name = "Birth Date")]
         public DateTime BirthDateTime { get; set; }
@@ -28,25 +28,27 @@ namespace Amirhossein_Khabbaz.Models
         public string PhoneNumber { get; set; }
 
         [StringLength(255)]
-        public String Email { get; set; }
+        public string Email { get; set; }
 
         [StringLength(255)]
         [Display(Name = "linkedin")]
-        public String LinkediN { get; set; }
+        public string LinkedIn { get; set; }
 
         [StringLength(255)]
         [Display(Name = "github")]
-        public String Github { get; set; }
+        public string Github { get; set; }
 
         [StringLength(255)]
         [Display(Name = "gitlab")]
-        public String Gitlab { get; set; }
+        public string Gitlab { get; set; }
 
         [StringLength(255)]
-        public String twitter { get; set; }
+        [Display(Name = "twitter")]
+        public string Twitter { get; set; }
 
         [StringLength(255)]
-        public String facebook { get; set; }
+        [Display(Name = "facebook")]
+        public string Facebook { get; set; }
 
     }
 }

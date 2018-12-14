@@ -12,27 +12,35 @@ namespace Amirhossein_Khabbaz.Dtos
         public int Id { get; set; }
 
         [Required]
-        [Range(1, 255)]
-        public String Name { get; set; }
+        [StringLength(255)]
+        public string Name { get; set; }
 
-        [Display(Name = "Birth Date")]
         public DateTime BirthDateTime { get; set; }
 
         [Required]
-        [Range(1, 4)]
+        [StringLength(5)]
         public string CountryPhonePrefix { get; set; }
 
         [Required]
-        [Range(1, 10)]
-        [Display(Name = "Phone Number")]
+        [StringLength(10)]
         public string PhoneNumber { get; set; }
 
-        [Range(1, 100)]
-        public String Email { get; set; }
+        [StringLength(255)]
+        public string Email { get; set; }
 
-        public List<Skill> Skills { get; set; }
+        [StringLength(255)]
+        public string LinkedIn { get; set; }
 
-        [Required]
-        public List<int> SkillsIds { get; set; }
+        [StringLength(255)]
+        public string Github { get; set; }
+
+        [StringLength(255)]
+        public string Gitlab { get; set; }
+
+        [StringLength(255)]
+        public string Twitter { get; set; }
+
+        [StringLength(255)]
+        public string Facebook { get; set; }
     }
 }
