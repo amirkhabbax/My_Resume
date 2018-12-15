@@ -1,9 +1,5 @@
 ﻿@model Amirhossein_Khabbaz.Models.Person
 
-@{
-
-}
-
 <h2 class="haveMarginTop">@ViewBag.Title</h2>
 @using (Html.BeginForm("Save", "Persons"))
 {
@@ -34,9 +30,9 @@
         @Html.ValidationMessageFor(p => p.Email)
     </div>
     <div class="form-group">
-        @Html.LabelFor(p => p.Linkedin)
-        @Html.TextBoxFor(p => p.Linkedin, new { @class = "form-control" })
-        @Html.ValidationMessageFor(p => p.Linkedin)
+        @Html.LabelFor(p => p.LinkedIn)
+        @Html.TextBoxFor(p => p.LinkedIn, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.LinkedIn)
     </div>
     <div class="form-group">
         @Html.LabelFor(p => p.Github)

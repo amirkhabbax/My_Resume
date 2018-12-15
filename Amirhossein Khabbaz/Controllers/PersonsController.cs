@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Amirhossein_Khabbaz.Models;
+using AutoMapper;
 
 namespace Amirhossein_Khabbaz.Controllers
 {
@@ -71,13 +72,8 @@ namespace Amirhossein_Khabbaz.Controllers
                 personInDb.Gitlab = person.Gitlab;
                 personInDb.Twitter = person.Twitter;
                 personInDb.Facebook = person.Facebook;
-<<<<<<< HEAD
                 personInDb.LinkedIn = person.LinkedIn;
-=======
-                personInDb.Linkedin = person.Linkedin;
->>>>>>> 33c1f823eabe2ea1251ace2a63e74304d0bd8b53
             }
-
 
             _context.SaveChanges();
 
