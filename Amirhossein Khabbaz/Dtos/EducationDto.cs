@@ -6,19 +6,17 @@ using System.Web;
 
 namespace Amirhossein_Khabbaz.Dtos
 {
-    public class SkillDto
+    public class EducationDto
     {
         public int Id { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string Name { get; set; }
+        public string Degree { get; set; }
 
         [Required]
-        public byte MaximumValue { get; set; }
-
-        [Required]
-        public byte CurrentValue { get; set; }
+        [StringLength(255)]
+        public string University { get; set; }
 
         [Required]
         public int PersonId { get; set; }

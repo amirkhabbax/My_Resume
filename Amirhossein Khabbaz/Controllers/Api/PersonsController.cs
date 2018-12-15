@@ -18,6 +18,7 @@ namespace Amirhossein_Khabbaz.Controllers.Api
         {
             _context = new ApplicationDbContext();
         }
+
         // GET /api/persons/1
         public IHttpActionResult GetPerson(int id)
         {
@@ -28,11 +29,13 @@ namespace Amirhossein_Khabbaz.Controllers.Api
             }
             return Ok(Mapper.Map<Person,PersonDto>(person));
         }
+
         // GET /api/persons
         public IHttpActionResult GetPersons()
         {
             return Ok(_context.Persons.ToList().Select(Mapper.Map<Person, PersonDto>));
         }
+
         // POST /api/persons
         [HttpPost]
         public IHttpActionResult CreatePerson(PersonDto personDto)
@@ -68,7 +71,7 @@ namespace Amirhossein_Khabbaz.Controllers.Api
             return Ok();
         }
 
-        // DELETE/api/persons/1
+        // DELETE /api/persons/1
         [HttpDelete]
         public IHttpActionResult DeletePerson(int id)
         {
@@ -78,6 +81,7 @@ namespace Amirhossein_Khabbaz.Controllers.Api
 
             _context.Persons.Remove(personInDb);
             _context.SaveChanges();
+
             return Ok();
         }
     }

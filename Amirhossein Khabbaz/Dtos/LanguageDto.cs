@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Amirhossein_Khabbaz.Dtos
 {
-    public class SkillDto
+    public class LanguageDto
     {
         public int Id { get; set; }
 

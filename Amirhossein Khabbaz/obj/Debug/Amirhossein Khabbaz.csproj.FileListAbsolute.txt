@@ -135,12 +135,8 @@ C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Am
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.UpdatePersonModel.resources
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.UpdatePersonModel1.resources
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.UpdatePersonModel2.resources
-<<<<<<< HEAD
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\bin\AutoMapper.dll
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\bin\System.ValueTuple.dll
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\bin\AutoMapper.xml
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\bin\System.ValueTuple.xml
-=======
-C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.UpdateDomainModel.resources
->>>>>>> 33c1f823eabe2ea1251ace2a63e74304d0bd8b53
 C:\Users\Amirhossein\Documents\Visual Studio 2017\Projects\AmirhosseinKhabbaz\Amirhossein Khabbaz\obj\Debug\Amirhossein_Khabbaz.Migrations.Update_Domain_Model.resources

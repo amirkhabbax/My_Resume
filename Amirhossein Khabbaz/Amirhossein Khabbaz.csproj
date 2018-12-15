@@ -251,8 +251,12 @@
     <Compile Include="Controllers\SkillsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WorkExperiencesController.cs" />
+    <Compile Include="Dtos\EducationDto.cs" />
+    <Compile Include="Dtos\InterestDto.cs" />
+    <Compile Include="Dtos\LanguageDto.cs" />
     <Compile Include="Dtos\PersonDto.cs" />
     <Compile Include="Dtos\SkillDto.cs" />
+    <Compile Include="Dtos\WorkExperienceDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
