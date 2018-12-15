@@ -288,6 +288,10 @@
     <Compile Include="Migrations\201812051442485_UpdatePersonModel2.Designer.cs">
       <DependentUpon>201812051442485_UpdatePersonModel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812151200535_Update_Domain_Model.cs" />
+    <Compile Include="Migrations\201812151200535_Update_Domain_Model.Designer.cs">
+      <DependentUpon>201812151200535_Update_Domain_Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -473,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812051442485_UpdatePersonModel2.resx">
       <DependentUpon>201812051442485_UpdatePersonModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812151200535_Update_Domain_Model.resx">
+      <DependentUpon>201812151200535_Update_Domain_Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
