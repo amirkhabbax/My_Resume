@@ -6,21 +6,69 @@
 
 <h2 class="haveMarginTop">Languages</h2>
 @Html.ActionLink("New Language", "New", "Languages", new { personId = Model.PersonId }, new { @class = "btn btn-primary" })
-<table Class="table table-responsive-lg">
-    <thead>
-    <tr>
-        <th>Language</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var language in Model.Languages)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink(language.Name, "Edit", "Languages", new { id = language.Id }, null)
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+<div class="haveMarginTop w3-responsive">
+    <table id="languages" Class="w3-table w3-bordered ">
+        <thead>
+            <tr>
+                <th><i class="fas fa-language"></i> Language</th>
+                <th>Measure of Knowledge in scale of 5</th>
+                <th><i class="fa fa-window-close"></i> Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+       </tbody>
+    </table>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
 
+            var table = $("#languages").DataTable({
+                ajax: {
+                    url: "/api/languages/"+ @Model.PersonId + "/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, language) {
+                            return "<a href='/languages/edit/" + language.id + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "currentValue",
+                        render: function (data) {
+                            return data + "/" + 5;
+                        }
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='w3-button w3-circle w3-small w3-padding-small w3-red js-delete' data-language-id=" + data + ">" +
+                                "<i class='fa fa-close'></i>" +
+                                "</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#languages ").on("click", ".js-delete",
+                function () {
+                    var button = $(this);
+                    bootbox.confirm("Are you sure you want to delete this language?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/languages/" + button.attr("data-language-id"),
+                                    method: "DELETE",
+                                    success: function () {
+                                        table.row(button.parents("tr")).remove().draw();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
+}

@@ -19,14 +19,24 @@ namespace Amirhossein_Khabbaz.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
+        //// GET /api/workExperiences/1
+        //public IHttpActionResult GetWorkExperience(int id)
+        //{
+        //    var workExperience = _context.WorkExperiences.SingleOrDefault(w => w.Id == id);
+        //    if (workExperience == null)
+        //        return NotFound();
+
+        //    return Ok(Mapper.Map<WorkExperience, WorkExperienceDto>(workExperience));
+        //}
+
         // GET /api/workExperiences/1
-        public IHttpActionResult GetWorkExperience(int id)
+        public IHttpActionResult GetWorkExperiencesByPersonId(int personId)
         {
-            var workExperience = _context.WorkExperiences.SingleOrDefault(w => w.Id == id);
-            if (workExperience == null)
+            var workExperiences = _context.WorkExperiences.Where(w => w.PersonId == personId).ToList();
+            if (workExperiences.Count == 0)
                 return NotFound();
 
-            return Ok(Mapper.Map<WorkExperience, WorkExperienceDto>(workExperience));
+            return Ok(workExperiences.Select(Mapper.Map<WorkExperience, WorkExperienceDto>));
         }
 
         // GET /api/workExperiences

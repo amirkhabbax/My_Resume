@@ -22,13 +22,13 @@ namespace Amirhossein_Khabbaz.Controllers
             _context.Dispose();
         }
         // GET: WorkExperiences
-        public ActionResult Index(int personId)
+        public ActionResult Index(int id)
         {
-            var workExperiences = _context.WorkExperiences.Where(w => w.PersonId == personId).ToList();
+            var workExperiences = _context.WorkExperiences.Where(w => w.PersonId == id).ToList();
             var viewModel = new WorkExperiencesViewModel
             {
                 WorkExperiences = workExperiences,
-                PersonId = personId
+                PersonId = id
             };
             return View(viewModel);
         }
@@ -78,7 +78,7 @@ namespace Amirhossein_Khabbaz.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "WorkExperiences", new { personId = workExperience.PersonId });
+            return RedirectToAction("Index", "WorkExperiences", new { id = workExperience.PersonId });
         }
     }
 }

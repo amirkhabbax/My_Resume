@@ -19,14 +19,24 @@ namespace Amirhossein_Khabbaz.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
+        //// GET /api/interests/1
+        //public IHttpActionResult GetInterest(int id)
+        //{
+        //    var interest = _context.Interests.SingleOrDefault(i => i.Id == id);
+        //    if (interest == null)
+        //        return NotFound();
+
+        //    return Ok(Mapper.Map<Interests, InterestDto>(interest));
+        //}
+
         // GET /api/interests/1
-        public IHttpActionResult GetInterest(int id)
+        public IHttpActionResult GetInterestsByPersonId(int personId)
         {
-            var interest = _context.Interests.SingleOrDefault(i => i.Id == id);
-            if (interest == null)
+            var interests = _context.Interests.Where(i => i.PersonId == personId).ToList();
+            if (interests.Count == 0)
                 return NotFound();
 
-            return Ok(Mapper.Map<Interests, InterestDto>(interest));
+            return Ok(interests.Select(Mapper.Map<Interests, InterestDto>));
         }
 
         // GET /api/interests

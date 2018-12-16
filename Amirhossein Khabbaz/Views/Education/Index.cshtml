@@ -6,21 +6,66 @@
 
 <h2 class="haveMarginTop">Education</h2>
 @Html.ActionLink("New Degree", "New", "Education", new { personId = Model.PersonId }, new { @class = "btn btn-primary" })
-<table Class="table table-responsive-lg">
-    <thead>
-    <tr>
-        <th>Degree</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var education in Model.Educations)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink(education.Degree, "Edit", "Education", new { id = education.Id }, null)
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+<div class="w3-responsive haveMarginTop">
+    <table id="degrees" Class="w3-table w3-bordered">
+        <thead>
+            <tr>
+                <th><i class="fas fa-graduation-cap"> </i> Degree</th>
+                <th><i class="fas fa-university"> </i>  University</th>
+                <th><i class="fa fa-window-close"> </i> Remove</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            var table = $("#degrees").DataTable({
+                ajax: {
+                    url: "/api/education/" + @Model.PersonId + "/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "degree",
+                        render: function (data, type, degree) {
+                            return "<a href='/education/edit/" + degree.id + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "university",
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='w3-button w3-circle w3-small w3-padding-small w3-red js-delete' data-degree-id=" + data + ">" +
+                                "<i class='fa fa-close'></i>" +
+                                "</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#degrees ").on("click", ".js-delete",
+                function () {
+                    var button = $(this);
+                    bootbox.confirm("Are you sure you want to delete this degree?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/education/" + button.attr("data-degree-id"),
+                                    method: "DELETE",
+                                    success: function () {
+                                        table.row(button.parents("tr")).remove().draw();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
+}
 

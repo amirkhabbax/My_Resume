@@ -6,22 +6,72 @@
 
 <h2 class="haveMarginTop">Work Experience</h2>
 @Html.ActionLink("New Work Experience", "New", "WorkExperiences", new { personId = Model.PersonId }, new { @class = "btn btn-primary" })
-<table Class="table table-responsive-lg">
-    <thead>
-        <tr>
-            <th>Company</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var workExperience in Model.WorkExperiences)
-        {
+<div class="w3-responsive haveMarginTop">
+    <table id="workExperiences" Class="w3-table w3-bordered ">
+        <thead>
             <tr>
-                <td>
-                    @Html.ActionLink(workExperience.Company, "Edit", "WorkExperiences", new { id = workExperience.Id }, null)
-                </td>
+                <th>Company</th>
+                <th>Years</th>
+                <th>Reason of Departure</th>
+                <th><i class="fa fa-window-close"> </i> Remove</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+         
+        </tbody>
+    </table>
+</div>
 
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
 
+            var table = $("#workExperiences").DataTable({
+                ajax: {
+                    url: "/api/workExperiences/" + @Model.PersonId + "/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "company",
+                        render: function (data, type, workExperience) {
+                            return "<a href='/workExperiences/edit/" + workExperience.id + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "years",
+                    },
+                    {
+                        data: "reasonOfDeparture",
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='w3-button w3-circle w3-small w3-padding-small w3-red js-delete' data-workExperience-id=" + data + ">" +
+                                "<i class='fa fa-close'></i>" +
+                                "</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#workExperiences ").on("click", ".js-delete",
+                function () {
+                    var button = $(this);
+                    bootbox.confirm("Are you sure you want to delete this work experience?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/workExperiences/" + button.attr("data-workExperience-id"),
+                                    method: "DELETE",
+                                    success: function () {
+                                        table.row(button.parents("tr")).remove().draw();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
+}

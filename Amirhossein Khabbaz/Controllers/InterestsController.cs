@@ -22,13 +22,13 @@ namespace Amirhossein_Khabbaz.Controllers
             _context.Dispose();
         }
         // GET: Interests
-        public ActionResult Index(int personId)
+        public ActionResult Index(int id)
         {
-            var interests = _context.Interests.Where( i => i.PersonId == personId).ToList();
+            var interests = _context.Interests.Where( i => i.PersonId == id).ToList();
             var viewModel = new InterestViewModel
             {
                 Interests = interests,
-                PersonId = personId
+                PersonId = id
             };
             return View(viewModel);
         }
@@ -76,7 +76,7 @@ namespace Amirhossein_Khabbaz.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Interests" ,  new {personId = interest.PersonId});
+            return RedirectToAction("Index", "Interests" ,  new {id = interest.PersonId});
         }
     }
 }

@@ -22,13 +22,13 @@ namespace Amirhossein_Khabbaz.Controllers
             _context.Dispose();
         }
         // GET: Education
-        public ActionResult Index(int personId)
+        public ActionResult Index(int id)
         {
-            var educations = _context.Educations.Where(e => e.PersonId == personId).ToList();
+            var educations = _context.Educations.Where(e => e.PersonId == id).ToList();
             var viewModel = new EducationsViewModel
             {
                 Educations = educations,
-                PersonId = personId
+                PersonId = id
             };
             return View(viewModel);
         }
@@ -77,7 +77,7 @@ namespace Amirhossein_Khabbaz.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Education", new {personId = education.PersonId});
+            return RedirectToAction("Index", "Education", new {id = education.PersonId});
         }
     }
 }

@@ -5,21 +5,63 @@
 }
 
 <h2 class="haveMarginTop">Interests</h2>
-@Html.ActionLink("New Interest", "New", "Interests", new{personId = Model.PersonId}, new { @class = "btn btn-primary" })
-<table Class="table table-responsive-lg">
-    <thead>
-    <tr>
-        <th>Interest</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var interest in Model.Interests)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink(interest.Name, "Edit", "Interests", new { id = interest.Id }, null)
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+@Html.ActionLink("New Interest", "New", "Interests", new { personId = Model.PersonId }, new { @class = "btn btn-primary" })
+<div class="w3-responsive haveMarginTop">
+    <table id="interests" Class="w3-table w3-bordered ">
+        <thead>
+            <tr>
+                <th><i class="fas fa-heart"></i> Interest</th>
+                <th><i class="fa fa-window-close"> </i> Remove</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            var table = $("#interests").DataTable({
+                ajax: {
+                    url: "/api/interests/" + @Model.PersonId + "/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, interest) {
+                            return "<a href='/interests/edit/" + interest.id + "'>" + data + "</a>";
+                        }
+                    },
+
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='w3-button w3-circle w3-small w3-padding-small w3-red js-delete' data-interest-id=" + data + ">" +
+                                "<i class='fa fa-close'></i>" +
+                                "</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#interests ").on("click", ".js-delete",
+                function () {
+                    var button = $(this);
+                    bootbox.confirm("Are you sure you want to delete this interest?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/interests/" + button.attr("data-interest-id"),
+                                    method: "DELETE",
+                                    success: function () {
+                                        table.row(button.parents("tr")).remove().draw();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
+}

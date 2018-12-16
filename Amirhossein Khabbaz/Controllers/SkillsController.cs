@@ -22,13 +22,13 @@ namespace Amirhossein_Khabbaz.Controllers
             _context.Dispose();
         }
         // GET: Skills
-        public ActionResult Index(int personId)
+        public ActionResult Index(int id)
         {
-            var skills = _context.Skills.Where(s => s.PersonId == personId).ToList();
+            var skills = _context.Skills.Where(s => s.PersonId == id).ToList();
             var viewModel = new SkillstViewModel
             {
                 Skills = skills,
-                PersonId = personId
+                PersonId = id
             };
             return View(viewModel);
         }
@@ -77,7 +77,7 @@ namespace Amirhossein_Khabbaz.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Skills", new{personId = skill.PersonId});
+            return RedirectToAction("Index", "Skills", new{id = skill.PersonId});
         }
     }
 }

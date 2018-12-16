@@ -19,15 +19,25 @@ namespace Amirhossein_Khabbaz.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
+        //// GET /api/education/1
+        //public IHttpActionResult GetEducation(int id)
+        //{
+        //    var education = _context.Educations.SingleOrDefault(e => e.Id == id);
+        //    if (education == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(Mapper.Map<Education, EducationDto>(education));
+        //}
+
         // GET /api/education/1
-        public IHttpActionResult GetEducation(int id)
+        public IHttpActionResult GetEducationsByPersonId(int personId)
         {
-            var education = _context.Educations.SingleOrDefault(e => e.Id == id);
-            if (education == null)
-            {
+            var educations = _context.Educations.Where(e => e.PersonId == personId).ToList();
+            if (educations.Count == 0)
                 return NotFound();
-            }
-            return Ok(Mapper.Map<Education, EducationDto>(education));
+
+            return Ok(educations.Select(Mapper.Map<Education, EducationDto>));
         }
 
         // GET /api/education

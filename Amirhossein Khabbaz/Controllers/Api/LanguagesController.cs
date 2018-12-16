@@ -19,14 +19,24 @@ namespace Amirhossein_Khabbaz.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
+        //// GET /api/languages/1
+        //public IHttpActionResult GetLanguage(int id)
+        //{
+        //    var language = _context.Languages.SingleOrDefault(l => l.Id == id);
+        //    if (language == null)
+        //        return NotFound();
+
+        //    return Ok(Mapper.Map<Language, LanguageDto>(language));
+        //}
+
         // GET /api/languages/1
-        public IHttpActionResult GetLanguage(int id)
+        public IHttpActionResult GetLanguagesByPersonId(int personId)
         {
-            var language = _context.Languages.SingleOrDefault(l => l.Id == id);
-            if (language == null)
+            var languages = _context.Languages.Where(l => l.PersonId == personId).ToList();
+            if (languages.Count == 0)
                 return NotFound();
 
-            return Ok(Mapper.Map<Language, LanguageDto>(language));
+            return Ok(languages.Select(Mapper.Map<Language, LanguageDto>));
         }
 
         // GET /api/languages

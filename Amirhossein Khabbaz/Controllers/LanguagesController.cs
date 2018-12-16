@@ -22,13 +22,13 @@ namespace Amirhossein_Khabbaz.Controllers
             _context.Dispose();
         }
         // GET: Languages
-        public ActionResult Index(int personId)
+        public ActionResult Index(int id)
         {
-            var languages = _context.Languages.Where( l => l.PersonId == personId).ToList();
+            var languages = _context.Languages.Where( l => l.PersonId == id).ToList();
             var viewModel = new LanguagesViewModel
             {
                 Languages = languages,
-                PersonId = personId
+                PersonId = id
             };
             return View(viewModel);
         }
@@ -78,7 +78,7 @@ namespace Amirhossein_Khabbaz.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Languages", new{personId = language.PersonId});
+            return RedirectToAction("Index", "Languages", new{id = language.PersonId});
         }
     }
 }

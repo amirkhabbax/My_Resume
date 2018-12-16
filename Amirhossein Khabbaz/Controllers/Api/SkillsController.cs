@@ -19,15 +19,15 @@ namespace Amirhossein_Khabbaz.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        // GET /api/skills/1
-        public IHttpActionResult GetSkill(int id)
-        {
-            var skill = _context.Skills.SingleOrDefault(s => s.Id == id);
-            if (skill == null)
-                return NotFound();
+        //// GET /api/skills/1
+        //public IHttpActionResult GetSkill(int id)
+        //{
+        //    var skill = _context.Skills.SingleOrDefault(s => s.Id == id);
+        //    if (skill == null)
+        //        return NotFound();
 
-            return Ok(Mapper.Map<Skill, SkillDto>(skill));
-        }
+        //    return Ok(Mapper.Map<Skill, SkillDto>(skill));
+        //}
 
         // GET /api/skills
         public IHttpActionResult GetSkills()
@@ -35,6 +35,15 @@ namespace Amirhossein_Khabbaz.Controllers.Api
             return Ok(_context.Skills.ToList().Select(Mapper.Map<Skill, SkillDto>));
         }
 
+        // GET /api/skills/1
+        public IHttpActionResult GetSkillsByPersonId(int personId)
+        {
+            var skills = _context.Skills.Where(s => s.PersonId == personId).ToList();
+            if (skills.Count == 0)
+                return NotFound();
+
+                return Ok(skills.Select(Mapper.Map<Skill, SkillDto>));
+        }
         // POST /api/skills
         [HttpPost]
         public IHttpActionResult CreateSkill(SkillDto skillDto)
