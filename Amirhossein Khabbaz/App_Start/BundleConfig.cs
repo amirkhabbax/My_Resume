@@ -15,7 +15,7 @@ namespace Amirhossein_Khabbaz
                 "~/Scripts/bootbox.js",
                 "~/Scripts/respond.js",
                 "~/Scripts/datatables/jquery.datatables.js",
-                "~/scripts/Footer.js",
+                "~/scripts/Site.js",
                 "~/Scripts/datatables/datatables.bootstrap4.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

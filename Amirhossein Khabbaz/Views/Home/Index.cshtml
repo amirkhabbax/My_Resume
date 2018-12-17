@@ -1,15 +1,103 @@
-﻿<div class="jumbotron">
+﻿<div class="jumbotron w3-flat-wet-asphalt">
     <h1>My Skills</h1>
     <p class="lead">Here is the list of the skills which i have.</p>
 </div>
 <div class="row">
-    <div class="col-md-4">
-        <h2>Work Experience</h2>
+    <div class="col-md-4" id="exp">
+        <ul class="w3-ul ">
+            <li><h2><i class="fas fa-briefcase"></i> Work Experience</h2></li>
+        </ul>
     </div>
-    <div class="col-md-4">
-        <h2>Education</h2>
+    <div class="col-md-4" id="edu">
+        <ul class="w3-ul ">
+            <li><h2><i class="fas fa-user-graduate"></i> Education</h2></li>
+        </ul>
     </div>
-    <div class="col-md-4">
-        <h2>Languages</h2>
+    <div class="col-md-4" id="lang">
+        <ul class="w3-ul ">
+            <li><h2><i class="fas fa-language"></i> Languages</h2></li>
+        </ul>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12" id="fav">
+        <ul class="w3-ul">
+            <li><h2><i class="fas fa-heart"></i> Interests</h2></li>
+        </ul>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $.getJSON("/api/languages/1", function (data) {
+                $.each(data, function (i, field) {
+                    $("#lang ul").append(
+                        '<li>' +
+                        '<table class="w3-table">' +
+                        '<tr>' +
+                        '<td style="width:85px;">' +
+                        field.name +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="w3-flat-midnight-blue w3-round-xlarge">' +
+                        '<div class="w3-win8-green w3-round-xlarge" style="height:24px;width:' +
+                        field.currentValue * 20 + '%"></div>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>' +
+                        '</table>' +
+                        '</li>');
+                });
+            });
+
+            $.getJSON("/api/education/1", function (data) {
+                $.each(data, function (i, field) {
+                    $("#edu ul").append(
+                        '<li>' +
+                        '<table class="w3-table">' +
+                        '<tr>' +
+                        '<td style="font-size:12px;">' +
+                        '<i class="fas fa-graduation-cap"></i> ' + field.degree +
+                        '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td style="font-size:14px;">' +
+                        '<i class="fas fa-university"></i> ' + field.university +
+                        '</td>' +
+                        '</tr>' +
+                        '</table>' +
+                        '</li>');
+                });
+            });
+
+            $.getJSON("/api/workExperiences/1", function (data) {
+                $.each(data, function (i, field) {
+                    $("#exp ul").append(
+                        '<li>' +
+                        '<table class="w3-table">' +
+                        '<tr>' +
+                        '<td style="font-size:14px;">' +
+                        '<i class="fas fa-tasks"></i> ' + 'Web Developer' +
+                        '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td style="font-size:12px;">' +
+                        '<i class="fas fa-building"></i> ' + field.company +
+                        '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td style="font-size:10px;">' +
+                        '<i class="fas fa-calendar-alt"></i> ' + '2013-2015' +
+                        '</td>' +
+                        '</tr>' +
+                        '</table>' +
+                        '</li>');
+                });
+            });
+        });
+
+
+
+    </script>
+}

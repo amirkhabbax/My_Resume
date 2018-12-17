@@ -15,9 +15,5 @@ namespace Amirhossein_Khabbaz.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            return View();
-        }
-  }
+     }
 }

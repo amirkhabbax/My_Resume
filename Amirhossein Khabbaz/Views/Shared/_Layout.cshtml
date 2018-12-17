@@ -9,34 +9,37 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-win8.css">
 </head>
 <body>
-    <div class="navbar navbar-dark fixed-top navbar-expand-lg bg-dark">
-        <div class="container">
-            <nav class="nav navbar-dark bg-dark">
-                <button class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                @Html.ActionLink("Amirhossein Khabbaz", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </nav>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    @* <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
-                    <li>@Html.ActionLink("Contact Me", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Settings", "Index", "Persons", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer class="footer">
-            <p>&copy; @DateTime.Now.Year - Amirhossein Khabbaz's Portfolio</p>
-        </footer>
+    <div class="w3-sidebar w3-bar-block w3-flat-midnight-blue w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large"
+                onclick="w3_close()">
+            &times;
+        </button>
+        @Html.ActionLink("  Amirhossein Khabbaz", "Index", "Home", new { area = "" }, new { @class = "w3-bar-item w3-button" })
+        <a class="w3-bar-item w3-button" href="/Persons"><i class="fas fa-user-cog"></i> Settings</a>
+        @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
     </div>
 
+    <div id="main">
+
+        <div class="w3-win8-green">
+            <button id="openNav" class="w3-button w3-metro-green w3-xlarge" onclick="w3_open()">&#9776;</button>
+            <div class="w3-container">
+                <a href="/home" class="navbar-brand"> <h2>Amirhossein Khabbaz</h2></a>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer class="footer">
+                <p>&copy; @DateTime.Now.Year - Amirhossein Khabbaz's Portfolio</p>
+            </footer>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
 </body>
