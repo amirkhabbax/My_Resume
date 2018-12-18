@@ -15,28 +15,36 @@
 </head>
 <body>
     <div class="w3-sidebar w3-bar-block w3-flat-midnight-blue w3-animate-left" style="display:none" id="mySidebar">
-        <button class="w3-bar-item w3-button w3-large"
+        <button class=" w3-button w3-large w3-padding-small"
                 onclick="w3_close()">
             &times;
         </button>
-        @Html.ActionLink("  Amirhossein Khabbaz", "Index", "Home", new { area = "" }, new { @class = "w3-bar-item w3-button" })
-        <a class="w3-bar-item w3-button" href="/Persons"><i class="fas fa-user-cog"></i> Settings</a>
+        <div class="w3-row">
+            <span id="bar" class="w3-bar w3-col"></span>
+            <h4 style="padding-left:17px; margin-bottom:0;" class="w3-col"></h4>
+            <h6 style="padding-left:17px; font-size: 11px; margin-top:5px;" class="w3-text-light-blue w3-col"></h6>
+        </div>
+
+        <div id="myTable" class="w3-responsive">
+            <table class="w3-table"></table>
+        </div>
+
         @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
     </div>
 
     <div id="main">
 
         <div class="w3-win8-green">
-            <button id="openNav" class="w3-button w3-metro-green w3-xlarge" onclick="w3_open()">&#9776;</button>
+            <button id="openNav" class="w3-button w3-win8-green w3-xlarge" onclick="w3_open()">&#9776;</button>
             <div class="w3-container">
-                <a href="/home" class="navbar-brand"> <h2>Amirhossein Khabbaz</h2></a>
+                <a href="/home" class="navbar-brand" id="name"> <h2></h2></a>
             </div>
         </div>
         <div class="container body-content">
             @RenderBody()
             <hr />
-            <footer class="footer">
-                <p>&copy; @DateTime.Now.Year - Amirhossein Khabbaz's Portfolio</p>
+            <footer id="name_" class="footer">
+                <p>&copy; @DateTime.Now.Year </p>
             </footer>
         </div>
     </div>
