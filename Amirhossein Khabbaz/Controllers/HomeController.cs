@@ -10,7 +10,7 @@ namespace Amirhossein_Khabbaz.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Amirhossein Khabbaz's Portfolio";
 
             return View();
         }
