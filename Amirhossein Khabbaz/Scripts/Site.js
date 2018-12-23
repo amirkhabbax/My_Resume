@@ -1,9 +1,9 @@
 ﻿$(document).ready(function () {
     $('.footer').css('margin-top', $(document).height() - ($('.container').height() + $('.footer').height()) - 50);
 
+ 
     $.getJSON("/api/persons", function (data) {
         $.each(data, function (i, field) {
-
             $("#bar").append(
                 '<a href="/Persons" class="w3-button w3-circle w3-padding-small w3-metro-green w3-hover-green w3-ripple" style = "margin-left:17px;" > ' +
                 '<i class="fas fa-user-cog w3-small"></i> ' +

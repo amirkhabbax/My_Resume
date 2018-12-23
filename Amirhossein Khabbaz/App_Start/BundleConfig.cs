@@ -16,6 +16,7 @@ namespace Amirhossein_Khabbaz
                 "~/Scripts/respond.js",
                 "~/Scripts/datatables/jquery.datatables.js",
                 "~/scripts/Site.js",
+                "~/scripts/slick/slick.min.js",
                 "~/Scripts/datatables/datatables.bootstrap4.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -25,6 +26,8 @@ namespace Amirhossein_Khabbaz
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/content/slick/slick-theme.css",
+                      "~/content/slick/slick.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
                       "~/Content/site.css"));
         }
